@@ -120,7 +120,8 @@ namespace ToolRentals {
             txtToolDescription.DataBindings.Add("Text", _dtable, "Description");
             txtToolBrand.DataBindings.Add("Text", _dtable, "Brand");
             txtToolComments.DataBindings.Add("Text", _dtable, "Comments");
-            cbActive.DataBindings.Add("Checked", _dtable, "Status");
+            cbActive.DataBindings.Add("Checked", _dtable, "Status", true);
+
         }
 
         #endregion

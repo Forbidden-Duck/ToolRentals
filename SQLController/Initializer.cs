@@ -56,7 +56,7 @@ namespace SQLController {
                 "ToolID int IDENTITY(1,1) PRIMARY KEY, " +
                 "Description VARCHAR(60), " +
                 "Brand VARCHAR(60), " +
-                "Status bit NOT NULL, " +
+                "Status bit, " +
                 "Comments VARCHAR(120)";
             // Create the Tool Table with the Schema
             _sql.CreateDatabaseTable("Tool", schema);

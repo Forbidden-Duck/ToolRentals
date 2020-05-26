@@ -126,14 +126,14 @@ namespace ToolRentals {
                 // Create and assign new column names
                 // Create and assign the DateTimePicker DateRented
                 // Create and assign the ComboBox CustomerID
-                string columnNames = "CustomerID, DateRented, DateReturned";
+                string columnNames = "CustomerID, Workshop, DateRented, DateReturned";
                 string dateRented = dtpDateRented.Value.ToString("yyyy-MM-dd");
                 long customerID = long.Parse(cboCustomer.SelectedValue.ToString());
 
                 // Create and assign the CustomerID, DateRented and DateReturned
                 // Assign _pkID with the Insert Parent Record return value
                 // Assign txtRentalID with the new Primary Key
-                string columnValues = $"{customerID}, '{dateRented}', null";
+                string columnValues = $"{customerID}, '{txtWorkshop.Text}', '{dateRented}', null";
                 _pkID = Context.InsertParentTable("Rental", columnNames, columnValues);
                 txtRentalD.Text = _pkID.ToString();
 

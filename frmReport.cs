@@ -38,7 +38,7 @@ namespace ToolRentals {
 
             // For each DataRowView in the DataView
             foreach (DataRowView drv in _dvHistory) {
-                // Append a line with DateRented, CustomerName, MovieName and DateReturned
+                // Append a line with DateRented, CustomerName, ToolName and DateReturned
                 csv.AppendLine(
                     $"{drv["DateRented"].ToString()}" +
                     $"{drv["CustomerName"].ToString()}" +
@@ -47,7 +47,7 @@ namespace ToolRentals {
                     $"{drv["DateReturned"].ToString()}");
             }
 
-            // Write the StringBuilder to the VideoRental CSV
+            // Write the StringBuilder to the ToolRental CSV
             // Show a MessageBox
             File.WriteAllText(Application.StartupPath + @"\ToolRentalsHistory.csv", csv.ToString());
             MessageBox.Show("Tool Rentals exported to CSV", Properties.Settings.Default.ProjectName);
