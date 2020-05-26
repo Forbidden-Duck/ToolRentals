@@ -33,7 +33,7 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(287, 418);
+            this.btnClose.Location = new System.Drawing.Point(493, 416);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 28);
             this.btnClose.TabIndex = 7;
@@ -43,11 +43,16 @@
             // 
             // dgvTools
             // 
+            this.dgvTools.AllowUserToAddRows = false;
+            this.dgvTools.AllowUserToResizeColumns = false;
+            this.dgvTools.AllowUserToResizeRows = false;
             this.dgvTools.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTools.Location = new System.Drawing.Point(17, 84);
             this.dgvTools.Name = "dgvTools";
-            this.dgvTools.Size = new System.Drawing.Size(345, 322);
+            this.dgvTools.ReadOnly = true;
+            this.dgvTools.Size = new System.Drawing.Size(551, 322);
             this.dgvTools.TabIndex = 6;
+            this.dgvTools.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.DgvTools_UserDeletingRow);
             this.dgvTools.DoubleClick += new System.EventHandler(this.dgvTools_DoubleClick);
             // 
             // lblToolList
@@ -76,7 +81,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 456);
+            this.ClientSize = new System.Drawing.Size(578, 456);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.dgvTools);
             this.Controls.Add(this.lblToolList);

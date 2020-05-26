@@ -62,6 +62,8 @@
             // 
             // txtCustomerID
             // 
+            this.txtCustomerID.Enabled = false;
+            this.txtCustomerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCustomerID.Location = new System.Drawing.Point(165, 52);
             this.txtCustomerID.MaxLength = 8;
             this.txtCustomerID.Name = "txtCustomerID";

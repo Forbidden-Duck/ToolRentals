@@ -33,7 +33,7 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(287, 418);
+            this.btnClose.Location = new System.Drawing.Point(490, 416);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 28);
             this.btnClose.TabIndex = 15;
@@ -43,11 +43,16 @@
             // 
             // dgvRentals
             // 
+            this.dgvRentals.AllowUserToAddRows = false;
+            this.dgvRentals.AllowUserToResizeColumns = false;
+            this.dgvRentals.AllowUserToResizeRows = false;
             this.dgvRentals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRentals.Location = new System.Drawing.Point(17, 84);
             this.dgvRentals.Name = "dgvRentals";
-            this.dgvRentals.Size = new System.Drawing.Size(345, 322);
+            this.dgvRentals.ReadOnly = true;
+            this.dgvRentals.Size = new System.Drawing.Size(548, 322);
             this.dgvRentals.TabIndex = 14;
+            this.dgvRentals.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.DgvRentals_UserDeletingRow);
             this.dgvRentals.DoubleClick += new System.EventHandler(this.DgvRentals_DoubleClick);
             // 
             // lblRentalList
@@ -76,7 +81,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 456);
+            this.ClientSize = new System.Drawing.Size(575, 456);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.dgvRentals);
             this.Controls.Add(this.lblRentalList);

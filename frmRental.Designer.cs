@@ -143,6 +143,8 @@
             // 
             // txtRentalD
             // 
+            this.txtRentalD.Enabled = false;
+            this.txtRentalD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRentalD.Location = new System.Drawing.Point(151, 53);
             this.txtRentalD.MaxLength = 8;
             this.txtRentalD.Name = "txtRentalD";

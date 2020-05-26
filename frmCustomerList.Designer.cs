@@ -43,11 +43,16 @@
             // 
             // dgvCustomers
             // 
+            this.dgvCustomers.AllowUserToAddRows = false;
+            this.dgvCustomers.AllowUserToResizeColumns = false;
+            this.dgvCustomers.AllowUserToResizeRows = false;
             this.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCustomers.Location = new System.Drawing.Point(17, 84);
             this.dgvCustomers.Name = "dgvCustomers";
+            this.dgvCustomers.ReadOnly = true;
             this.dgvCustomers.Size = new System.Drawing.Size(345, 322);
             this.dgvCustomers.TabIndex = 10;
+            this.dgvCustomers.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.DgvCustomers_UserDeletingRow);
             this.dgvCustomers.DoubleClick += new System.EventHandler(this.DgvCustomers_DoubleClick);
             // 
             // lblCustomerList

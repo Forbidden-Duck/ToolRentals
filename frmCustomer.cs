@@ -104,8 +104,18 @@ namespace ToolRentals {
                 // Create and assign a new DataRow
                 // Assign an empty row to the DataTable
                 DataRow row = _dtable.NewRow();
+                row["CustomerID"] = GetCustomerCount();
                 _dtable.Rows.Add(row);
             }
+        }
+
+        /// <summary>
+        /// Get the customer row count
+        /// </summary>
+        /// <returns>Row count + 1</returns>
+        private int GetCustomerCount() {
+            DataTable tempTable = Context.GetDataTable("Customer");
+            return tempTable.Rows.Count + 1;
         }
 
         /// <summary>

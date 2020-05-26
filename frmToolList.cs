@@ -78,6 +78,11 @@ namespace ToolRentals {
             }
         }
 
+        private void DgvTools_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e) {
+            // Delete the row
+            Context.DeleteRecord("Tool", "ToolID", e.Row.Cells[0].Value.ToString());
+        }
+
         #endregion
 
         #region Helper Method

@@ -48,6 +48,8 @@
             // 
             // txtToolID
             // 
+            this.txtToolID.Enabled = false;
+            this.txtToolID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtToolID.Location = new System.Drawing.Point(129, 53);
             this.txtToolID.MaxLength = 8;
             this.txtToolID.Name = "txtToolID";
