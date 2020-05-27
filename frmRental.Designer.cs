@@ -219,7 +219,7 @@
             // txtWorkshop
             // 
             this.txtWorkshop.Location = new System.Drawing.Point(151, 112);
-            this.txtWorkshop.MaxLength = 8;
+            this.txtWorkshop.MaxLength = 60;
             this.txtWorkshop.Name = "txtWorkshop";
             this.txtWorkshop.Size = new System.Drawing.Size(219, 20);
             this.txtWorkshop.TabIndex = 39;

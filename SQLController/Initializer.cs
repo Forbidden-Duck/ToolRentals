@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SQLConnection;
 
 /// <summary>
@@ -27,6 +24,7 @@ namespace SQLController {
         public static void InitalizeDatabase() {
             // Create the Database
             _sql.CreateDatabase();
+
             // Create the Tables
             // Seed data into the tables
             CreateDatabaseTables();

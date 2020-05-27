@@ -28,8 +28,9 @@
             this.lblSearch = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnExport = new System.Windows.Forms.Button();
             this.dgvReport = new System.Windows.Forms.DataGridView();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.cboExport = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).BeginInit();
@@ -65,6 +66,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.cboExport);
             this.panel2.Controls.Add(this.btnClose);
             this.panel2.Controls.Add(this.btnExport);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -84,17 +86,6 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnExport
-            // 
-            this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExport.Location = new System.Drawing.Point(597, 3);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(114, 28);
-            this.btnExport.TabIndex = 24;
-            this.btnExport.Text = "Export to CSV";
-            this.btnExport.UseVisualStyleBackColor = true;
-            this.btnExport.Click += new System.EventHandler(this.BtnExport_Click);
-            // 
             // dgvReport
             // 
             this.dgvReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -103,6 +94,32 @@
             this.dgvReport.Name = "dgvReport";
             this.dgvReport.Size = new System.Drawing.Size(800, 379);
             this.dgvReport.TabIndex = 5;
+            // 
+            // btnExport
+            // 
+            this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.Location = new System.Drawing.Point(337, 3);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(114, 28);
+            this.btnExport.TabIndex = 24;
+            this.btnExport.Text = "Export to CSV";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.BtnExport_Click);
+            // 
+            // cboExport
+            // 
+            this.cboExport.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cboExport.FormattingEnabled = true;
+            this.cboExport.Items.AddRange(new object[] {
+            "Checked out tools",
+            "Active tools",
+            "Active tools by brand",
+            "Retired tools",
+            "Retired tools by brand"});
+            this.cboExport.Location = new System.Drawing.Point(457, 6);
+            this.cboExport.Name = "cboExport";
+            this.cboExport.Size = new System.Drawing.Size(165, 21);
+            this.cboExport.TabIndex = 32;
             // 
             // frmReport
             // 
@@ -134,7 +151,8 @@
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.DataGridView dgvReport;
+        private System.Windows.Forms.ComboBox cboExport;
+        private System.Windows.Forms.Button btnExport;
     }
 }

@@ -35,22 +35,103 @@ namespace ToolRentals {
         private void BtnExport_Click(object sender, EventArgs e) {
             // Create and assign a new StringBuilder
             StringBuilder csv = new StringBuilder();
+            // Set the query
+            string sqlQuery;
+            // Set the datatable
+            DataTable tempTable;
 
-            // For each DataRowView in the DataView
-            foreach (DataRowView drv in _dvHistory) {
-                // Append a line with DateRented, CustomerName, ToolName and DateReturned
-                csv.AppendLine(
-                    $"{drv["DateRented"].ToString()}" +
-                    $"{drv["CustomerName"].ToString()}" +
-                    $"{drv["Description"].ToString()}" +
-                    $"{drv["Workshop"].ToString()}" +
-                    $"{drv["DateReturned"].ToString()}");
+            switch (cboExport.SelectedIndex) {
+                case -1:
+                    // Check if nothing is selected
+                    MessageBox.Show("No export option chosen",
+                        Properties.Settings.Default.ProjectName,
+                        MessageBoxButtons.OK);
+                    return;
+                case 0:
+                    // Check if checked out tools
+                    // Set the query
+                    sqlQuery =
+                        "SELECT Tool.ToolID, Tool.Description, Tool.Brand, Rental.DateRented FROM Tool " +
+                        "LEFT JOIN RentalItem ON Tool.ToolID = RentalItem.ToolID " +
+                        "LEFT JOIN Rental ON RentalItem.RentalID = Rental.RentalID";
+                    tempTable = Context.GetDataTable(sqlQuery, "Tool");
+                    foreach (DataRow row in tempTable.Rows) {
+                        // Append a line with Description, Brand, DateRented
+                        csv.AppendLine(
+                            $"{row["Description"].ToString()}," +
+                            $"{row["Brand"].ToString()}," +
+                            $"{DateTime.Parse(row["DateRented"].ToString()).ToString("dd/MM/yyyy")}");
+                    }
+                    break;
+                case 1:
+                    // Check if tool is active
+                    // Set the query
+                    sqlQuery =
+                        "SELECT ToolID, Description, Brand, Status FROM Tool " +
+                        "WHERE Status = 1";
+                    tempTable = Context.GetDataTable(sqlQuery, "Tool");
+                    foreach (DataRow row in tempTable.Rows) {
+                        // Append a line with Description, Brand, DateRented
+                        csv.AppendLine(
+                            $"{row["Description"].ToString()}," +
+                            $"{row["Brand"].ToString()}," +
+                            $"{row["Status"].ToString()}");
+                    }
+                    break;
+                case 2:
+                    // Check if tool is active by brand
+                    // Set the query
+                    sqlQuery =
+                        "SELECT ToolID, Description, Brand, Status FROM Tool " +
+                        "WHERE Status = 1" +
+                        "ORDER BY Brand";
+                    tempTable = Context.GetDataTable(sqlQuery, "Tool");
+                    foreach (DataRow row in tempTable.Rows) {
+                        // Append a line with Description, Brand, DateRented
+                        csv.AppendLine(
+                            $"{row["Description"].ToString()}," +
+                            $"{row["Brand"].ToString()}," +
+                            $"{row["Status"].ToString()}");
+                    }
+                    break;
+                case 3:
+                    // Check if tool is retired
+                    // Set the query
+                    sqlQuery =
+                        "SELECT ToolID, Description, Brand, Status FROM Tool " +
+                        "WHERE Status = 0";
+                    tempTable = Context.GetDataTable(sqlQuery, "Tool");
+                    foreach (DataRow row in tempTable.Rows) {
+                        // Append a line with Description, Brand, DateRented
+                        csv.AppendLine(
+                            $"{row["Description"].ToString()}," +
+                            $"{row["Brand"].ToString()}," +
+                            $"{row["Status"].ToString()}");
+                    }
+                    break;
+                case 4:
+                    // Check if tool is retired by brand
+                    // Set the query
+                    sqlQuery =
+                        "SELECT ToolID, Description, Brand, Status FROM Tool " +
+                        "WHERE Status = 0" +
+                        "ORDER BY Brand";
+                    tempTable = Context.GetDataTable(sqlQuery, "Tool");
+                    foreach (DataRow row in tempTable.Rows) {
+                        // Append a line with Description, Brand, DateRented
+                        csv.AppendLine(
+                            $"{row["Description"].ToString()}," +
+                            $"{row["Brand"].ToString()}," +
+                            $"{row["Status"].ToString()}");
+                    }
+                    break;
             }
 
             // Write the StringBuilder to the ToolRental CSV
             // Show a MessageBox
-            File.WriteAllText(Application.StartupPath + @"\ToolRentalsHistory.csv", csv.ToString());
-            MessageBox.Show("Tool Rentals exported to CSV", Properties.Settings.Default.ProjectName);
+            File.WriteAllText(Application.StartupPath + $@"\ToolRentalsHistory{cboExport.SelectedIndex}.csv", csv.ToString());
+            MessageBox.Show($"{cboExport.SelectedItem.ToString()} exported to CSV as \"ToolRentalsHistory{cboExport.SelectedIndex}.csv\"",
+                Properties.Settings.Default.ProjectName);
         }
 
         #endregion
