@@ -97,6 +97,7 @@ namespace ToolRentals {
         #endregion
 
         #region Form Events
+
         private void frmRentalItem_Paint(object sender, PaintEventArgs e) {
             // Assign the form background colour with the ColorTheme from the project settings
             BackColor = Properties.Settings.Default.ColorTheme;
@@ -144,8 +145,8 @@ namespace ToolRentals {
             // Create and assign a new SQL Query
             string sqlQuery = $"SELECT ToolID, Description FROM Tool";
 
-            // Assign the Movie DataTable with the Movie DataTable
-            // Create a new column with the MovieID and MovieName
+            // Assign the Tool DataTable with the Tool DataTable
+            // Create a new column with the ToolID and ToolName
             _itemTable = Context.GetDataTable(sqlQuery, "Tool");
             _itemTable.Columns.Add("Display", typeof(string), "ToolID + ' - ' + Description");
         }
